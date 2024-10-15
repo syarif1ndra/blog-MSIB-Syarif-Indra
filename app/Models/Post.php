@@ -25,10 +25,8 @@ class Post extends Model
 {
     return $this->belongsTo(Author::class);
 }
-// Di dalam Post.php model
 public function getImageUrlAttribute()
 {
-    return asset('storage/' . $this->image); // Asumsi 'image' adalah kolom yang menyimpan nama file gambar
-}
+    return asset('storage/' . $this->image); }
 
 }

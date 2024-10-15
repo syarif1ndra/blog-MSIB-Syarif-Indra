@@ -11,16 +11,16 @@
     <style>
         html, body {
             height: 100%;
-            margin: 0; /* Menghapus margin default */
+            margin: 0;
         }
 
         body {
-    background-color: #dfdfdf; /* Ganti dengan warna yang Anda inginkan */
-    color: rgb(0, 0, 0); /* Mengatur warna teks */
-    height: 100vh; /* Tinggi layar penuh */
-    margin: 0; /* Pastikan tidak ada margin */
-    display: flex; /* Untuk penataan konten di dalamnya */
-    flex-direction: column; /* Agar konten mengalir dari atas ke bawah */
+    background-color: #dfdfdf;
+    color: rgb(0, 0, 0);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -34,15 +34,15 @@
             font-size: 1.2rem;
             font-weight: 500;
             transition: color 0.3s ease;
-            color: #6c757d; /* Warna sedikit gelap untuk default */
+            color: #6c757d;
         }
 
         .navbar-nav .nav-item .nav-link.active {
-            color: #fff200; /* Warna cerah untuk link aktif */
+            color: #fff200;
         }
 
         .navbar-nav .nav-item .nav-link:hover {
-            color: #ffffff; /* Warna putih saat di-hover */
+            color: #ffffff; 
         }
 
         .card-hover:hover {

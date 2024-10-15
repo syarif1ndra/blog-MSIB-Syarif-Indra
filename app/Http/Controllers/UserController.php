@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function show()
     {
-        $user = Auth::user(); // Ambil data user yang sedang login
+        $user = Auth::user(); 
         return view('profile', compact('user'));
     }
 }

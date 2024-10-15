@@ -10,7 +10,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Fetch the latest posts, categories, and authors
         $posts = Post::latest()->take(6)->get();
         $categories = Category::all();
         $authors = Author::all();

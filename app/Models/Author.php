@@ -11,7 +11,7 @@ class Author extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'email', 'bio', // Tambahkan email
+        'name', 'email', 'bio',
     ];
     public function posts()
 {

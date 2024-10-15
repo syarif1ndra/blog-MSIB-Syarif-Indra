@@ -34,10 +34,10 @@ Route::resource('authors', AuthorController::class);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('users', [UserController::class, 'index'])->name('users.index'); // Daftar pengguna
-    Route::get('users/{user}/profile', [UserController::class, 'profile'])->name('users.profile'); // Profil pengguna
-    Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit'); // Edit pengguna
-    Route::put('users/{user}', [UserController::class, 'update'])->name('users.update'); // Update pengguna
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('users/{user}/profile', [UserController::class, 'profile'])->name('users.profile');
+    Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('users/{user}', [UserController::class, 'update'])->name('users.update'); 
 });
 Route::resource('users', UserController::class);
 

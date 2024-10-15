@@ -9,7 +9,6 @@
         <div class="card-body">
             <h5 class="card-title">{{ $user->name }}</h5>
             <p class="card-text"><strong>Email:</strong> {{ $user->email }}</p>
-            <!-- Tambahkan informasi lain jika diperlukan -->
         </div>
     </div>
 </div>

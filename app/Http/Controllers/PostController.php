@@ -26,12 +26,11 @@ class PostController extends Controller
         'title'         => 'required|string|max:255',
         'Content'       => 'required|string',
         'image'         => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        'is_published'  => 'nullable|boolean', // Validasi ini akan memastikan hanya true atau false
+        'is_published'  => 'nullable|boolean',
         'category_id'   => 'required|exists:categories,id',
     ]);
 
     try {
-        // Store the image path if any
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('asset-images', 'public');
@@ -39,9 +38,9 @@ class PostController extends Controller
 
         Post::create([
             'title' => $request->title,
-            'Content' => $request->Content, // Perbaikan: Ganti getContent() dengan content
+            'Content' => $request->Content,
             'image' => $imagePath,
-            'is_published' => $request->is_published == '1', // Pastikan ini boolean
+            'is_published' => $request->is_published == '1', 
             'category_id' => $request->category_id
         ]);
 

@@ -6,11 +6,11 @@
     <h1>Posts</h1>
     <a href="{{ route('posts.create') }}" class="btn btn-primary mb-2">Create Post</a>
     <div class="list-group">
-        @if (count($posts) > 0) <!-- Perbaiki kondisi ini -->
+        @if (count($posts) > 0)
             @foreach ($posts as $post)
                 <div class="list-group-item justify-content-between align-items-center d-flex">
                     <div class="d-flex">
-                        @if ($post->image_url) <!-- Pastikan menggunakan nama field yang benar -->
+                        @if ($post->image_url) 
                             <img src="{{ asset('storage/'.$post->image_url) }}" alt="Post image" class="img-thumbnail me-3" style="width: 100px; height: 100px;">
                         @else
                             <img src="https://via.placeholder.com/100" alt="Default Image" class="img-thumbnail me-3" style="width: 100px; height: 100px;">

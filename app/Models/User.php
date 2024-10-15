@@ -12,8 +12,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'bio', // Tambahkan ini
-        'profile_photo_url', // Jika ada
+        'bio',
+        'profile_photo_url', 
     ];
 }
 

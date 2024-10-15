@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator; // Pastikan ini ada
-use Illuminate\Support\Facades\Hash; // Pastikan ini ada
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function showLoginForm()
@@ -21,14 +21,11 @@ class AuthController extends Controller
         'password' => 'required|string',
     ]);
 
-    // Attempt to log the user in
-    if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-        // Jika login berhasil, arahkan ke halaman Home
-        return redirect()->route('home')->with('success', 'Login successful.');
+     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+         return redirect()->route('home')->with('success', 'Login successful.');
     }
 
-    // Jika login gagal, kembali ke halaman login dengan pesan error
-    return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+     return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
 }
 
 
@@ -38,32 +35,27 @@ class AuthController extends Controller
     }
     public function register(Request $request)
     {
-        // Validasi input
-        $validator = Validator::make($request->all(), [
+         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users', // Validasi email unik
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        // Jika validasi gagal
-        if ($validator->fails()) {
+         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
-        // Buat pengguna baru
-        User::create([
+         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password), // Hash password
+            'password' => bcrypt($request->password),
         ]);
 
-        // Redirect setelah berhasil mendaftar
-        return redirect()->route('login')->with('success', 'Registration successful! Please login.');
+         return redirect()->route('login')->with('success', 'Registration successful! Please login.');
     }
     public function logout(Request $request)
 {
-    Auth::logout(); // Mengeluarkan pengguna
-
+    Auth::logout();  
     return redirect('/')->with('success', 'Anda telah berhasil logout.');
 }
 }
