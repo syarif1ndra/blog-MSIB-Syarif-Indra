@@ -41,6 +41,7 @@
 
     <div class="login-card card">
         <h1>Login</h1>
+<<<<<<< HEAD
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -52,11 +53,17 @@
             </div>
         @endif
 
+=======
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
+<<<<<<< HEAD
                 <input type="email" id="email" name="email" class="form-control" required value="{{ old('email') }}">
+=======
+                <input type="email" id="email" name="email" class="form-control" required>
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password:</label>

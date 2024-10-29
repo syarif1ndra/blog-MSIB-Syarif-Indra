@@ -6,18 +6,31 @@
     <h1>Posts</h1>
     <a href="{{ route('posts.create') }}" class="btn btn-primary mb-2">Create Post</a>
     <div class="list-group">
+<<<<<<< HEAD
         @if ($posts->count() > 0)
             @foreach ($posts as $post)
                 <div class="list-group-item justify-content-between align-items-center d-flex">
                     <div class="d-flex">
                         @if ($post->image) 
                             <img src="{{ asset('storage/' . $post->image) }}" alt="Post image" class="img-thumbnail me-3" style="width: 100px; height: 100px;">
+=======
+        @if (count($posts) > 0)
+            @foreach ($posts as $post)
+                <div class="list-group-item justify-content-between align-items-center d-flex">
+                    <div class="d-flex">
+                        @if ($post->image_url) 
+                            <img src="{{ asset('storage/'.$post->image_url) }}" alt="Post image" class="img-thumbnail me-3" style="width: 100px; height: 100px;">
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
                         @else
                             <img src="https://via.placeholder.com/100" alt="Default Image" class="img-thumbnail me-3" style="width: 100px; height: 100px;">
                         @endif
 
                         <div>
+<<<<<<< HEAD
                             <h6><a href="{{ route('home.posts.show', $post->id) }}">{{ $post->title }}</a></h6>
+=======
+                            <h6><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h6>
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
                             <p>in category {{ $post->category->name }}</p>
                             <p>
                                 Status:

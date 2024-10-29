@@ -21,6 +21,7 @@ class PostController extends Controller
     }
 
     public function store(Request $request)
+<<<<<<< HEAD
     {
         $request->validate([
             'title'         => 'required|string|max:255',
@@ -50,6 +51,37 @@ class PostController extends Controller
         }
     }
     
+=======
+{
+    $request->validate([
+        'title'         => 'required|string|max:255',
+        'Content'       => 'required|string',
+        'image'         => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        'is_published'  => 'nullable|boolean',
+        'category_id'   => 'required|exists:categories,id',
+    ]);
+
+    try {
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('asset-images', 'public');
+        }
+
+        Post::create([
+            'title' => $request->title,
+            'Content' => $request->Content,
+            'image' => $imagePath,
+            'is_published' => $request->is_published == '1', 
+            'category_id' => $request->category_id
+        ]);
+
+        return redirect()->route('posts.index')->with('success', 'Post created successfully');
+    } catch (\Exception $err) {
+        return redirect()->route('posts.index')->with('error', $err->getMessage());
+    }
+}
+
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
 
     public function edit(Post $post)
     {
@@ -61,12 +93,20 @@ class PostController extends Controller
     {
         $request->validate([
             'title'       => 'required|string|max:255',
+<<<<<<< HEAD
             'content'     => 'required|string',  // Ubah menjadi lowercase
+=======
+            'Content'     => 'required|string',
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
             'category_id' => 'required|exists:categories,id',
             'is_published'=> 'nullable|boolean',
             'image'       => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
         try {
             $imagePath = $post->image;
             if ($request->hasFile('image')) {
@@ -75,7 +115,11 @@ class PostController extends Controller
 
             $post->update([
                 'title' => $request->title,
+<<<<<<< HEAD
                 'content' => $request->content,  // Ubah menjadi lowercase
+=======
+                'Content' => $request->Content,
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
                 'category_id' => $request->category_id,
                 'is_published' => $request->has('is_published'),
                 'image' => $imagePath,
@@ -86,7 +130,10 @@ class PostController extends Controller
             return redirect()->route('posts.index')->with('error', $err->getMessage());
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
     public function destroy(Post $post)
     {
         try {
@@ -96,7 +143,10 @@ class PostController extends Controller
             return redirect()->route('posts.index')->with('error', $err->getMessage());
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
     public function show($id)
     {
         $post = Post::findOrFail($id);

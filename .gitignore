@@ -4,7 +4,10 @@
 /public/hot
 /public/storage
 /storage/*.key
+<<<<<<< HEAD
 /storage/pail
+=======
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
 /vendor
 .env
 .env.backup

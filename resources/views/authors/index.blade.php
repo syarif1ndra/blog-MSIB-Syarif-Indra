@@ -16,7 +16,10 @@
                 <div>
                     <h5>{{ $author->name }}</h5>
                     <p>{{ $author->bio }}</p>
+<<<<<<< HEAD
                     
+=======
+>>>>>>> 3b9aed0d0cebc4a471119d63ed3688d019f301d1
                 </div>
                 <div>
                     <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-warning">Edit</a>
